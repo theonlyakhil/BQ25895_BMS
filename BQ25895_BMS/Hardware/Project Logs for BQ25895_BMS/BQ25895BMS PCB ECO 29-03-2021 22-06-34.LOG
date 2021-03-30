@@ -1,0 +1,4 @@
+Added Component: Designator=J8(Castellated_Connector)
+Added Pin To Net: NetName=GND Pin=J8-1
+Added Member To Class: ClassName=[01]BQ25895_BMS Member=Component J8 cas
+Added Room: Name=[01]BQ25895_BMS
