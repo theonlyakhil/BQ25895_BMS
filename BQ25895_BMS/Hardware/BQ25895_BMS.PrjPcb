@@ -71,6 +71,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=PNCWTOXX
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for BQ25895_BMS\Design Rule Check - BQ25895BMS.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
@@ -1101,6 +1105,17 @@ SelectedOnly=0
 UpdateVariants=1
 UpdateToLatestRevision=1
 PartTypes=0
+
+[NetInfos]
+Net1=NetName=BQ25895_\Q\O\N\|NetColor=$00FFFF6E
+Net2=NetName=BQ25895_BAT|NetColor=$006724DA
+Net3=NetName=BQ25895_INT|NetColor=$00FFFF6E
+Net4=NetName=BQ25895_SCL|NetColor=$00FFFF6E
+Net5=NetName=BQ25895_SDA|NetColor=$00FFFF6E
+Net6=NetName=BQ25895_STAT|NetColor=$00FFFF6E
+Net7=NetName=BQ25895_SYS|NetColor=$006EFF6E
+Net8=NetName=NetC4_1|NetColor=$006EFF6E
+Net9=NetName=VSYS|NetColor=$006EFF6E
 
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=-1|Confirm=-1|UseName=-1|InclAllRules=0

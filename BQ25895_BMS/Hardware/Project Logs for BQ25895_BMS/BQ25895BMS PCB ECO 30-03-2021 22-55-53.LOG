@@ -1,0 +1,23 @@
+Change component parameters: Designator = "U1" ("U1"); Footprint = "24-WQFN"; UniqueID = "\GZYFICMB" ("\GZYFICMB")
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "SupplierURL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = " "; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ManufacturerPartNumber"; Value = "BQ25895RTWR"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MaxTemp"; Value = "85°C "; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MinTemp"; Value = "-40°C "; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PartStatus"; Value = "Active"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Price"; Value = "3.46"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digikey"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SupplierPartNumber"; Value = "296-44345-1-ND"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=VSYS Pin=U1-15
+Added Pin To Net: NetName=VSYS Pin=U1-16
+Change Net Name : Old Net Name=VSYS New Net Name=BQ25895_SYS
+Change Net Color : Old Net Color=RGB(158, 161, 117) New Net Color=RGB(110, 255, 255)
+Change Net Color : Old Net Color=RGB(158, 161, 117) New Net Color=RGB(218, 36, 103)
+Change Net Color : Old Net Color=RGB(158, 161, 117) New Net Color=RGB(110, 255, 255)
+Change Net Color : Old Net Color=RGB(158, 161, 117) New Net Color=RGB(110, 255, 255)
+Change Net Color : Old Net Color=RGB(158, 161, 117) New Net Color=RGB(110, 255, 255)
+Change Net Color : Old Net Color=RGB(158, 161, 117) New Net Color=RGB(110, 255, 255)
+Change Net Color : Old Net Color=RGB(158, 161, 117) New Net Color=RGB(110, 255, 110)
+Change Net Color : Old Net Color=RGB(158, 161, 117) New Net Color=RGB(110, 255, 110)
+Added Room: Name=[01]BQ25895_BMS
