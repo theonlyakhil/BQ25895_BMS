@@ -1,0 +1,13 @@
+Change Component Designator: OldDesignator=FD? NewDesignator=FD1
+Change Component Designator: OldDesignator=FD? NewDesignator=FD2
+Change Component Designator: OldDesignator=FD? NewDesignator=FD3
+Change Component Designator: OldDesignator=MH? NewDesignator=MH1
+Change Component Designator: OldDesignator=MH? NewDesignator=MH2
+Change Component Designator: OldDesignator=MH? NewDesignator=MH3
+Change Component Designator: OldDesignator=MH? NewDesignator=MH4
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component FD2 FIDUCIAL
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component FD3 FIDUCIAL
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component MH1 Mounting Hole
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component MH2 Mounting Hole
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component MH4 Mounting Hole
+Added Room: Name=BQ25895_BMS_Module

@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=GND Pin=MH2-1
+Removed Member From Class: ClassName=BQ25895_BMS_Module Member=MH2
+Added Room: Name=BQ25895_BMS_Module

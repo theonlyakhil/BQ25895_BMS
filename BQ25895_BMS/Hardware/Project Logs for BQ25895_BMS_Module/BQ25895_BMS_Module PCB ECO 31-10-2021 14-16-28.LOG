@@ -1,0 +1,5 @@
+Added Pin To Net: NetName=BQ25895_TS Pin=R5-1
+Added Pin To Net: NetName=BQ25895_TS Pin=R9-2
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component FD1 FIDUCIAL
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component MH3 Mounting Hole
+Added Room: Name=BQ25895_BMS_Module

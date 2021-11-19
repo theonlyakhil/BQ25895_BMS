@@ -1,0 +1,4 @@
+Added Component: Designator=MH2(Mounting_Hole_3.3mm)
+Added Pin To Net: NetName=GND Pin=MH2-1
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component MH2 Mounting Hole
+Added Room: Name=BQ25895_BMS_Module
