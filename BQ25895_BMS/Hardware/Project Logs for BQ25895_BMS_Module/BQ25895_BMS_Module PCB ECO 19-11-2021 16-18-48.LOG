@@ -1,0 +1,7 @@
+Change component parameters: Designator = "MH2" ("MH2"); Footprint = "Mounting_Hole_3.3mm"; UniqueID = "\QIATPTZK" ("\QIATPTZK")
+Change component parameters (AddParameter): Name = "ClassName"; Value = "Mounting Hole"; VariantName = "[No Variations]"
+Change component parameters: Designator = "MH3" ("MH3"); Footprint = "Mounting_Hole_3.3mm"; UniqueID = "\KBUVUEFD" ("\KBUVUEFD")
+Change component parameters (AddParameter): Name = "ClassName"; Value = "Mounting Hole"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=Mounting Hole Member=Component MH2 Mounting Hole
+Added Member To Class: ClassName=Mounting Hole Member=Component MH3 Mounting Hole
+Added Room: Name=BQ25895_BMS_Module

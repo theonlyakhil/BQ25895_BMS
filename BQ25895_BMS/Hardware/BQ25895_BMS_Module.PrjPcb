@@ -74,6 +74,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=IBBUEJDM
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for BQ25895_BMS_Module\Design Rule Check - BQ25895_BMS_Module.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
@@ -995,7 +999,7 @@ GlobalIndexSortOrder=3
 GlobalIndexSortLocation=0
 
 [PrjClassGen]
-CompClassManualEnabled=0
+CompClassManualEnabled=1
 CompClassManualRoomEnabled=0
 NetClassAutoBusEnabled=1
 NetClassAutoCompEnabled=0

@@ -1,0 +1,14 @@
+Change component parameters: Designator = "J3" ("J3"); Footprint = "Micro USB"; UniqueID = "\SLNNGBOA" ("\SLNNGBOA")
+Change component parameters (AddParameter): Name = "ClassName"; Value = "USBconnector"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1Description"; Value = "SupplierURL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.digikey.com/en/products/detail/würth-elektronik/629105150521/5047751"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Würth Elektronik"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "ManufacturerPartNumber"; Value = "629105150521"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MaxTemp"; Value = "85°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MinTemp"; Value = "-40°C"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "PartStatus"; Value = "Active"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Price"; Value = "2.07"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = "Digikey"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SupplierPartNumber"; Value = "732-5960-1-ND"; VariantName = "[No Variations]"
+Added Class: Name=USBconnector
+Added Room: Name=BQ25895_BMS_Module

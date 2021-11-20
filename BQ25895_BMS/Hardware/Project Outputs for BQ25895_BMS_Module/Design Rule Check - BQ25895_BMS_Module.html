@@ -1,0 +1,610 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD21\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">19-11-2021</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">21:13:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc" class="file"><acronym title="D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc">D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">74</td></tr>
+</table>
+</td>
+</table><a name="IDH0CKP2NG4CYJCAKQ4DOYJFHX5ELYHVCNE2UEFUEXRTRARWOYGG1P"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0FCYVA0MXYUNLHM4DCKSA1OUTDITQJASPRFKIMNJUUINE024GAND">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLNKAFNGBW2HTH1YGZLNCLRLRNCU05OFA2W1T0OEXHRCBYL4SXWLO">Clearance Constraint (Gap=0.5mm) (InComponentClass('FIDUCIALS')),(InPolygon)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDFZY1AKPOOP2DANISVQOIIT5DDEFQ0TBUJBMMEDQFKFDEMKPIE">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHSAYMVMBUZ41LKURCCGHFYPQDI5GI0KABTOETKKKHWQ5QTQEC1EJ">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">69</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMCYCWHBSM4IFFX1Q1GUQJIJIIECXT3UQWVS0EWBFNK5MYFJC0PGM">Un-Connected Pin Constraint ( (not InComponentClass('FIDUCIALS') and InComponent('D3') and InComponent('D2')) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDH3XGDAEWEUY3BDUZDSRTZ2Q2BJS51JULOGMDRWLUZZIZJ3SQSYMF">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDV0U4W5Q3XL0VHPLOC0V1ENHURHMUNIS1UYXTRAONH0WEJHDCHNCI">Width Constraint (Min=0.146mm) (Max=0.146mm) (Preferred=0.146mm) (InNetClass('RF LINE'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQDYJ2YEJ2HEHJO5RHTZECX3QGQVIL1HR5X54GDAG1EJYOYKTPNG">Width Constraint (Min=0.146mm) (Max=0.146mm) (Preferred=0.146mm) (InNetClass('IQ_DATA'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBE1EX2T2M2LZDIEVJG1Q2IAT4CWEO5TPKHO2BCFOSQBYRSPBVIRJ">Width Constraint (Min=0.01mm) (Max=5mm) (Preferred=0.2mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID5J0RZUTZ0IJ1KYLAQMFILMH4EPNXS0Z1RZEASNDOS0NCN2HEFVRK">Power Plane Connect Rule(Direct Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIDWB0SK3E4YRFZBPVTQT2OSPHJNKUPAGJPPAU4IZK4P3TQCVXLZJ">Minimum Annular Ring (Minimum=0.13mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFEEBZZNNOR5DG4JDLIE1ZWO0PDGXILURPD3EQMIO14QZ2NN3Y1M">Hole Size Constraint (Min=0.2mm) (Max=6.3mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHWFO2NS1VIXGONT100AJAYJLUHBMF0XBSVU1SMODE3AWXH1UOD1E">Hole To Hole Clearance (Gap=0.406mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDY0EMSNTB3RBEFIIW33GVNZKDDWCCVOJDMHZDWDYVXHWRWD2SKLG">Hole To Hole Clearance (Gap=0.254mm) (IsVia),(IsVia)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDPA55APAWELX1JFYU4RWI0DHLFPOJKCVXYRWUNOORQ4LEPFL5IY1B">Minimum Solder Mask Sliver (Gap=0.1mm) (InComponent('U1')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDR4AIQQFYOJRQDUEFMT5S3SL0SDESTXGS4VEWKEJAWKLU1IXZHQLM">Minimum Solder Mask Sliver (Gap=0.2mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDVZH2I0JWVYKPHK0UELHTPINMVNTFGFJ4QKT2DHDSOPPRPO2JLHCD">Silk To Solder Mask (Clearance=0.15mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDILFWLIFV2HT5NA3MVTFI3S53BGX2GSSK1M3R5CNPKR5IR13QJFML">Silk to Silk (Clearance=0.15mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDL3BTROYOYL5FFK5B5OSNHKOUID4V4QTKPDZZBFEIMGPXNR5MMW0E">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">5</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID1W2HMEILSXZFHRQJBNF3SVD0SPZV0K35ZDA3DQPK1E1HSHXRCCCG">Board Clearance Constraint (Gap=0mm) (OnLayer('Top Overlay'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHZAL21XEHGUPB1HKTM3PPQMISFOE2M3XND4TKUOVFIYW142TN02P">Board Clearance Constraint (Gap=0mm) (InComponentClass('USBconnector'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHLL1GBTNBTBWO5EQIPDNVRB4GQPDENFIVZMCKCHXC35HLNM34CP">Board Clearance Constraint (Gap=0mm) (InComponentClass('Mounting Hole'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBMDWZGJI3LRTEIHFARVKVIS0RPZ1CU0NQZN2F2NVN5SFPYT4AB3P">Board Clearance Constraint (Gap=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKFOJX1ANWERXEH3QFW2Y1AGIMIGGRYDVUQLOCSFAKDZJMVX5B4G">Board Clearance Constraint (Gap=0mm) (InComponent('J1'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQICG33W0KOK2DG5M410IQOU2UAKJXHJ2THK0SPUEDXV2MXU1ZTN">Matched Lengths(Tolerance=1mm) (InNetClass('IQ_DATA'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBJBQMYVSSWSFGOBVXTE2TXAIGJOAXYZOXZ4C5CDK4PIN2RPA5KWM">Matched Lengths(Tolerance=0.5mm) (InNetClass('ANAI_OUT'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDTXDGLTVAEFINFDRI5W45YKZDVLY33Q3GO0WC5WIXEDHZ3HHZWPTJ">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">74</td>
+</tr>
+</table><br><a name="IDHSAYMVMBUZ41LKURCCGHFYPQDI5GI0KABTOETKKKHWQ5QTQEC1EJ"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1962.535mil|Location2.X=2021.716mil|Location1.Y=1623.953mil|Location2.Y=1856.362mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1962.535mil|Location2.X=2021.716mil|Location1.Y=1623.953mil|Location2.Y=1856.362mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C12-1(20.6mm,16.85mm) on Top Layer And Pad C10-1(20.6mm,21.55mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1891.669mil|Location2.X=2021.716mil|Location1.Y=1808.992mil|Location2.Y=1856.362mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1891.669mil|Location2.X=2021.716mil|Location1.Y=1808.992mil|Location2.Y=1856.362mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C9-1(18.8mm,21.55mm) on Top Layer And Pad C10-1(20.6mm,21.55mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1594.425mil|Location2.X=1685.102mil|Location1.Y=1911.354mil|Location2.Y=2061.087mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1594.425mil|Location2.X=1685.102mil|Location1.Y=1911.354mil|Location2.Y=2061.087mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C2-1(11.2mm,26.5mm) on Top Layer And Pad C1-1(12.2mm,24.3mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1541.276mil|Location2.X=1685.102mil|Location1.Y=1883.795mil|Location2.Y=1970.535mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1541.276mil|Location2.X=1685.102mil|Location1.Y=1883.795mil|Location2.Y=1970.535mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C7-1(9.9mm,23.45mm) on Top Layer And Pad C1-1(12.2mm,24.3mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1637.732mil|Location2.X=1763.842mil|Location1.Y=1779.465mil|Location2.Y=1970.535mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1637.732mil|Location2.X=1763.842mil|Location1.Y=1779.465mil|Location2.Y=1970.535mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C1-1(12.2mm,24.3mm) on Top Layer And Via (14.45mm,20.55mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1891.669mil|Location2.X=2021.716mil|Location1.Y=1623.953mil|Location2.Y=1671.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1891.669mil|Location2.X=2021.716mil|Location1.Y=1623.953mil|Location2.Y=1671.323mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C11-1(18.8mm,16.85mm) on Top Layer And Pad C12-1(20.6mm,16.85mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1891.669mil|Location2.X=1950.85mil|Location1.Y=1499.937mil|Location2.Y=1671.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1891.669mil|Location2.X=1950.85mil|Location1.Y=1499.937mil|Location2.Y=1671.323mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R9-1(18.7mm,13.7mm) on Top Layer And Pad C11-1(18.8mm,16.85mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1891.669mil|Location2.X=2021.716mil|Location1.Y=1683.008mil|Location2.Y=1730.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1891.669mil|Location2.X=2021.716mil|Location1.Y=1683.008mil|Location2.Y=1730.378mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_BAT Between Pad C11-2(18.8mm,18.35mm) on Top Layer And Pad C12-2(20.6mm,18.35mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1830.709mil|Location2.X=1950.85mil|Location1.Y=1683.008mil|Location2.Y=1730.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1830.709mil|Location2.X=1950.85mil|Location1.Y=1683.008mil|Location2.Y=1730.378mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_BAT Between Pad U1-13(16.95mm,18.75mm) on Top Layer And Pad C11-2(18.8mm,18.35mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1962.535mil|Location2.X=2649.669mil|Location1.Y=1484.189mil|Location2.Y=1730.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1962.535mil|Location2.X=2649.669mil|Location1.Y=1484.189mil|Location2.Y=1730.378mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_BAT Between Pad C12-2(20.6mm,18.35mm) on Top Layer And Pad J4-2(36.3mm,13.7mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1738.126mil|Location2.X=1850.457mil|Location1.Y=1994.032mil|Location2.Y=2057.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1738.126mil|Location2.X=1850.457mil|Location1.Y=1994.032mil|Location2.Y=2057.15mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C13-1(14.9mm,26.25mm) on Bottom Layer And Pad C3-1(16.4mm,26.5mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1594.425mil|Location2.X=1653.606mil|Location1.Y=1994.032mil|Location2.Y=2139.827mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1594.425mil|Location2.X=1653.606mil|Location1.Y=1994.032mil|Location2.Y=2139.827mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C2-1(11.2mm,26.5mm) on Top Layer And Pad C4-1(11.4mm,28.6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1803.087mil|Location2.X=1854.394mil|Location1.Y=1997.969mil|Location2.Y=2139.827mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1803.087mil|Location2.X=1854.394mil|Location1.Y=1997.969mil|Location2.Y=2139.827mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C3-1(16.4mm,26.5mm) on Top Layer And Pad C5-1(16.5mm,28.6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1606.236mil|Location2.X=1854.394mil|Location1.Y=2080.646mil|Location2.Y=2139.827mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1606.236mil|Location2.X=1854.394mil|Location1.Y=2080.646mil|Location2.Y=2139.827mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C4-1(11.4mm,28.6mm) on Top Layer And Pad C5-1(16.5mm,28.6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1606.236mil|Location2.X=1712.661mil|Location1.Y=2080.646mil|Location2.Y=2334.709mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1606.236mil|Location2.X=1712.661mil|Location1.Y=2080.646mil|Location2.Y=2334.709mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C4-1(11.4mm,28.6mm) on Top Layer And Pad J1-1(12.5mm,33.3mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1462.535mil|Location2.X=1600.457mil|Location1.Y=1883.795mil|Location2.Y=1931.165mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1462.535mil|Location2.X=1600.457mil|Location1.Y=1883.795mil|Location2.Y=1931.165mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C6-1(7.9mm,23.45mm) on Top Layer And Pad C7-1(9.9mm,23.45mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1350.394mil|Location2.X=1521.716mil|Location1.Y=1883.795mil|Location2.Y=1947.835mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1350.394mil|Location2.X=1521.716mil|Location1.Y=1883.795mil|Location2.Y=1947.835mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad J3-7(5.35mm,23.725mm) on Multi-Layer And Pad C6-1(7.9mm,23.45mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1830.709mil|Location2.X=1950.85mil|Location1.Y=1808.992mil|Location2.Y=1856.362mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1830.709mil|Location2.X=1950.85mil|Location1.Y=1808.992mil|Location2.Y=1856.362mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U1-18(16.95mm,21.25mm) on Top Layer And Pad C9-1(18.8mm,21.55mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1237.142mil|Location2.X=1291.401mil|Location1.Y=1287.339mil|Location2.Y=1409.512mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1237.142mil|Location2.X=1291.401mil|Location1.Y=1287.339mil|Location2.Y=1409.512mil|Absolute=True">Un-Routed Net Constraint: Net NetD1_1 Between Pad D1-1(1.975mm,10.2mm) on Top Layer And Pad R6-1(2.2mm,8.3mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1302.102mil|Location2.X=1476.441mil|Location1.Y=1342.457mil|Location2.Y=1429.197mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1302.102mil|Location2.X=1476.441mil|Location1.Y=1342.457mil|Location2.Y=1429.197mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_STAT Between Pad D1-2(3.625mm,10.2mm) on Top Layer And Pad TP6-1(6.4mm,10.2mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1196.787mil|Location2.X=1712.661mil|Location1.Y=2255.843mil|Location2.Y=2543.37mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1196.787mil|Location2.X=1712.661mil|Location1.Y=2255.843mil|Location2.Y=2543.37mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad MH3-1(3mm,37mm) on Multi-Layer And Pad J1-1(12.5mm,33.3mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2570.803mil|Location2.X=2649.669mil|Location1.Y=1384.189mil|Location2.Y=2155.181mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2570.803mil|Location2.X=2649.669mil|Location1.Y=1384.189mil|Location2.Y=2155.181mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad J4-1(36.3mm,11.16mm) on Multi-Layer And Pad J2-1(36.3mm,28.74mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2535.37mil|Location2.X=2740.22mil|Location1.Y=2076.315mil|Location2.Y=2543.37mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2535.37mil|Location2.X=2740.22mil|Location1.Y=2076.315mil|Location2.Y=2543.37mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad J2-1(36.3mm,28.74mm) on Multi-Layer And Pad MH4-1(37mm,37mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1332.677mil|Location2.X=1423.291mil|Location1.Y=1707.614mil|Location2.Y=1887.795mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1332.677mil|Location2.X=1423.291mil|Location1.Y=1707.614mil|Location2.Y=1887.795mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad J3-10(4.3mm,22.5mm) on Multi-Layer And Pad J3-5(5.4mm,18.7mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1332.677mil|Location2.X=1433.071mil|Location1.Y=1852.362mil|Location2.Y=1947.835mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1332.677mil|Location2.X=1433.071mil|Location1.Y=1852.362mil|Location2.Y=1947.835mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad J3-10(4.3mm,22.5mm) on Multi-Layer And Pad J3-7(5.35mm,23.725mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1332.677mil|Location2.X=1423.291mil|Location1.Y=1655.512mil|Location2.Y=1733.331mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1332.677mil|Location2.X=1423.291mil|Location1.Y=1655.512mil|Location2.Y=1733.331mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad J3-11(4.3mm,17.5mm) on Multi-Layer And Pad J3-5(5.4mm,18.7mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1332.677mil|Location2.X=1433.071mil|Location1.Y=1595.473mil|Location2.Y=1690.945mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1332.677mil|Location2.X=1433.071mil|Location1.Y=1595.473mil|Location2.Y=1690.945mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad J3-11(4.3mm,17.5mm) on Multi-Layer And Pad J3-6(5.35mm,16.275mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1204.725mil|Location2.X=1433.071mil|Location1.Y=1594.488mil|Location2.Y=1654.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1204.725mil|Location2.X=1433.071mil|Location1.Y=1594.488mil|Location2.Y=1654.528mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad J3-9(1.55mm,16.125mm) on Multi-Layer And Pad J3-6(5.35mm,16.275mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1204.725mil|Location2.X=1433.071mil|Location1.Y=1888.78mil|Location2.Y=1948.819mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1204.725mil|Location2.X=1433.071mil|Location1.Y=1888.78mil|Location2.Y=1948.819mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad J3-8(1.55mm,23.875mm) on Multi-Layer And Pad J3-7(5.35mm,23.725mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1204.725mil|Location2.X=1295.339mil|Location1.Y=1476.315mil|Location2.Y=1643.701mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1204.725mil|Location2.X=1295.339mil|Location1.Y=1476.315mil|Location2.Y=1643.701mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad J3-9(1.55mm,16.125mm) on Multi-Layer And Pad TP2-1(1.8mm,13.6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2360.173mil|Location2.X=2649.669mil|Location1.Y=1322.772mil|Location2.Y=1463.055mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2360.173mil|Location2.X=2649.669mil|Location1.Y=1322.772mil|Location2.Y=1463.055mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad SW1-4(30.95mm,9.6mm) on Multi-Layer And Pad J4-1(36.3mm,11.16mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1433.858mil|Location2.X=1520.472mil|Location1.Y=1051.181mil|Location2.Y=1244.157mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1433.858mil|Location2.X=1520.472mil|Location1.Y=1051.181mil|Location2.Y=1244.157mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_SCL Between Pad J5-1(7.52mm,2.8mm) on Multi-Layer And Pad R4-1(7.6mm,6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1533.858mil|Location2.X=1620.472mil|Location1.Y=1051.181mil|Location2.Y=1244.158mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1533.858mil|Location2.X=1620.472mil|Location1.Y=1051.181mil|Location2.Y=1244.158mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_SDA Between Pad R3-1(10mm,6mm) on Top Layer And Pad J5-2(10.06mm,2.8mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.858mil|Location2.X=1720.472mil|Location1.Y=1051.181mil|Location2.Y=1244.157mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.858mil|Location2.X=1720.472mil|Location1.Y=1051.181mil|Location2.Y=1244.157mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_INT Between Pad J5-3(12.6mm,2.8mm) on Multi-Layer And Pad R2-1(12.6mm,6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1733.858mil|Location2.X=1933.134mil|Location1.Y=1051.181mil|Location2.Y=1137.795mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1733.858mil|Location2.X=1933.134mil|Location1.Y=1051.181mil|Location2.Y=1137.795mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad J5-4(15.14mm,2.8mm) on Multi-Layer And Pad J6-1(18.1mm,2.8mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1196.787mil|Location2.X=1820.472mil|Location1.Y=999.937mil|Location2.Y=1204.787mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1196.787mil|Location2.X=1820.472mil|Location1.Y=999.937mil|Location2.Y=1204.787mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad MH1-1(3mm,3mm) on Multi-Layer And Pad J5-4(15.14mm,2.8mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1854.268mil|Location2.X=2439.039mil|Location1.Y=1047.181mil|Location2.Y=1133.921mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1854.268mil|Location2.X=2439.039mil|Location1.Y=1047.181mil|Location2.Y=1133.921mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad J6-1(18.1mm,2.8mm) on Multi-Layer And Pad SW1-2(30.95mm,2.6mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1893.638mil|Location2.X=2033.134mil|Location1.Y=1055.055mil|Location2.Y=1610.299mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1893.638mil|Location2.X=2033.134mil|Location1.Y=1055.055mil|Location2.Y=1610.299mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_TS Between Pad R9-2(18.7mm,15.3mm) on Top Layer And Pad J6-2(20.64mm,2.8mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1196.787mil|Location2.X=1401.638mil|Location1.Y=999.937mil|Location2.Y=1563.055mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1196.787mil|Location2.X=1401.638mil|Location1.Y=999.937mil|Location2.Y=1563.055mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad TP2-1(1.8mm,13.6mm) on Top Layer And Pad MH1-1(3mm,3mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2360.173mil|Location2.X=2740.22mil|Location1.Y=999.937mil|Location2.Y=1204.787mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2360.173mil|Location2.X=2740.22mil|Location1.Y=999.937mil|Location2.Y=1204.787mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad SW1-2(30.95mm,2.6mm) on Multi-Layer And Pad MH2-1(37mm,3mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1696.788mil|Location2.X=1807.15mil|Location1.Y=1499.937mil|Location2.Y=1547.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1696.788mil|Location2.X=1807.15mil|Location1.Y=1499.937mil|Location2.Y=1547.307mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R8-1(13.7mm,13.7mm) on Top Layer And Pad R10-1(15.3mm,13.7mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1759.78mil|Location2.X=1941.008mil|Location1.Y=1499.937mil|Location2.Y=1547.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1759.78mil|Location2.X=1941.008mil|Location1.Y=1499.937mil|Location2.Y=1547.307mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R10-1(15.3mm,13.7mm) on Top Layer And Pad R9-1(18.7mm,13.7mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1759.78mil|Location2.X=1807.15mil|Location1.Y=1562.929mil|Location2.Y=1712.599mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1759.78mil|Location2.X=1807.15mil|Location1.Y=1562.929mil|Location2.Y=1712.599mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_ILIM Between Pad U1-10(15.25mm,18.05mm) on Top Layer And Pad R10-2(15.3mm,15.3mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1570.803mil|Location2.X=1681.165mil|Location1.Y=1562.929mil|Location2.Y=1610.299mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1570.803mil|Location2.X=1681.165mil|Location1.Y=1562.929mil|Location2.Y=1610.299mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_OTG Between Pad R7-2(10.5mm,15.3mm) on Top Layer And Pad R1-1(12.1mm,15.3mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.795mil|Location2.X=1748.032mil|Location1.Y=1562.929mil|Location2.Y=1712.599mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.795mil|Location2.X=1748.032mil|Location1.Y=1562.929mil|Location2.Y=1712.599mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_OTG Between Pad R1-1(12.1mm,15.3mm) on Top Layer And Pad U1-8(14.25mm,18.05mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1755.843mil|Location2.X=1921.323mil|Location1.Y=1192.85mil|Location2.Y=1295.339mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1755.843mil|Location2.X=1921.323mil|Location1.Y=1192.85mil|Location2.Y=1295.339mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_DSEL Between Pad R11-1(15.2mm,5.9mm) on Top Layer And Pad TP5-1(17.7mm,6.8mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1622.441mil|Location2.X=1879.528mil|Location1.Y=1760.236mil|Location2.Y=1316.535mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1622.441mil|Location2.X=1879.528mil|Location1.Y=1760.236mil|Location2.Y=1316.535mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_DSEL Between Track (13.75mm,21.95mm)(13.75mm,22.25mm) on Top Layer And Pad R11-1(15.2mm,5.9mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1653.48mil|Location2.X=1803.213mil|Location1.Y=1255.842mil|Location2.Y=1307.149mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1653.48mil|Location2.X=1803.213mil|Location1.Y=1255.842mil|Location2.Y=1307.149mil|Absolute=True">Un-Routed Net Constraint: Net VSYS Between Pad R2-2(12.6mm,7.6mm) on Top Layer And Pad R11-2(15.2mm,7.5mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.795mil|Location2.X=1700.85mil|Location1.Y=1259.78mil|Location2.Y=1547.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.795mil|Location2.X=1700.85mil|Location1.Y=1259.78mil|Location2.Y=1547.307mil|Absolute=True">Un-Routed Net Constraint: Net VSYS Between Pad R1-2(12.1mm,13.7mm) on Top Layer And Pad R2-2(12.6mm,7.6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.795mil|Location2.X=1866.142mil|Location1.Y=1499.937mil|Location2.Y=1767.717mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1633.795mil|Location2.X=1866.142mil|Location1.Y=1499.937mil|Location2.Y=1767.717mil|Absolute=True">Un-Routed Net Constraint: Net VSYS Between Pad R1-2(12.1mm,13.7mm) on Top Layer And Pad U1-15(16.95mm,19.75mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1653.48mil|Location2.X=1728.347mil|Location1.Y=1196.787mil|Location2.Y=1712.599mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1653.48mil|Location2.X=1728.347mil|Location1.Y=1196.787mil|Location2.Y=1712.599mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_INT Between Pad R2-1(12.6mm,6mm) on Top Layer And Pad U1-7(13.75mm,18.05mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1551.118mil|Location2.X=1700.85mil|Location1.Y=1259.78mil|Location2.Y=1307.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1551.118mil|Location2.X=1700.85mil|Location1.Y=1259.78mil|Location2.Y=1307.15mil|Absolute=True">Un-Routed Net Constraint: Net VSYS Between Pad R3-2(10mm,7.6mm) on Top Layer And Pad R2-2(12.6mm,7.6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1551.118mil|Location2.X=1712.599mil|Location1.Y=1196.787mil|Location2.Y=1728.347mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1551.118mil|Location2.X=1712.599mil|Location1.Y=1196.787mil|Location2.Y=1728.347mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_SDA Between Pad R3-1(10mm,6mm) on Top Layer And Pad U1-6(13.05mm,18.75mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1456.63mil|Location2.X=1598.488mil|Location1.Y=1259.78mil|Location2.Y=1307.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1456.63mil|Location2.X=1598.488mil|Location1.Y=1259.78mil|Location2.Y=1307.15mil|Absolute=True">Un-Routed Net Constraint: Net VSYS Between Pad R4-2(7.6mm,7.6mm) on Top Layer And Pad R3-2(10mm,7.6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1456.63mil|Location2.X=1712.599mil|Location1.Y=1196.787mil|Location2.Y=1748.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1456.63mil|Location2.X=1712.599mil|Location1.Y=1196.787mil|Location2.Y=1748.032mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_SCL Between Pad R4-1(7.6mm,6mm) on Top Layer And Pad U1-5(13.05mm,19.25mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1307.024mil|Location2.X=1504mil|Location1.Y=1259.78mil|Location2.Y=1334.709mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1307.024mil|Location2.X=1504mil|Location1.Y=1259.78mil|Location2.Y=1334.709mil|Absolute=True">Un-Routed Net Constraint: Net VSYS Between Pad R6-2(3.8mm,8.3mm) on Top Layer And Pad R4-2(7.6mm,7.6mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1826.709mil|Location2.X=1941.008mil|Location1.Y=1562.929mil|Location2.Y=1610.299mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1826.709mil|Location2.X=1941.008mil|Location1.Y=1562.929mil|Location2.Y=1610.299mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_TS Between Pad R5-1(17mm,15.3mm) on Top Layer And Pad R9-2(18.7mm,15.3mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1795.276mil|Location2.X=1874.079mil|Location1.Y=1562.929mil|Location2.Y=1712.599mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1795.276mil|Location2.X=1874.079mil|Location1.Y=1562.929mil|Location2.Y=1712.599mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_TS Between Pad U1-11(15.75mm,18.05mm) on Top Layer And Pad R5-1(17mm,15.3mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1661.89mil|Location2.X=1950.394mil|Location1.Y=1748.504mil|Location2.Y=1623.622mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1661.89mil|Location2.X=1950.394mil|Location1.Y=1748.504mil|Location2.Y=1623.622mil|Absolute=True">Un-Routed Net Constraint: Net REGN Between Track (14.75mm,21.95mm)(14.752mm,21.952mm) on Top Layer And Pad R5-2(17mm,13.7mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1570.803mil|Location2.X=1744.158mil|Location1.Y=1499.937mil|Location2.Y=1547.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1570.803mil|Location2.X=1744.158mil|Location1.Y=1499.937mil|Location2.Y=1547.307mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R7-1(10.5mm,13.7mm) on Top Layer And Pad R8-1(13.7mm,13.7mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1696.788mil|Location2.X=1767.716mil|Location1.Y=1562.929mil|Location2.Y=1712.599mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1696.788mil|Location2.X=1767.716mil|Location1.Y=1562.929mil|Location2.Y=1712.599mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_C\E\ Between Pad R8-2(13.7mm,15.3mm) on Top Layer And Pad U1-9(14.75mm,18.05mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2183.008mil|Location2.X=2261.874mil|Location1.Y=1047.181mil|Location2.Y=1401.638mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2183.008mil|Location2.X=2261.874mil|Location1.Y=1047.181mil|Location2.Y=1401.638mil|Absolute=True">Un-Routed Net Constraint: Net NetSW1_1 Between Pad SW1-1(26.45mm,2.6mm) on Multi-Layer And Pad SW1-3(26.45mm,9.6mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2360.173mil|Location2.X=2439.039mil|Location1.Y=1047.181mil|Location2.Y=1401.638mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2360.173mil|Location2.X=2439.039mil|Location1.Y=1047.181mil|Location2.Y=1401.638mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad SW1-2(30.95mm,2.6mm) on Multi-Layer And Pad SW1-4(30.95mm,9.6mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2051.118mil|Location2.X=2261.874mil|Location1.Y=1322.772mil|Location2.Y=1409.512mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2051.118mil|Location2.X=2261.874mil|Location1.Y=1322.772mil|Location2.Y=1409.512mil|Absolute=True">Un-Routed Net Constraint: Net NetSW1_1 Between Pad TP3-1(23.2mm,9.7mm) on Top Layer And Pad SW1-3(26.45mm,9.6mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1832.677mil|Location2.X=2137.858mil|Location1.Y=1322.772mil|Location2.Y=1702.756mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1832.677mil|Location2.X=2137.858mil|Location1.Y=1322.772mil|Location2.Y=1702.756mil|Absolute=True">Un-Routed Net Constraint: Net NetSW1_1 Between Via (16.8mm,18mm) from Top Layer to Bottom Layer And Pad TP3-1(23.2mm,9.7mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1389.701mil|Location2.X=1712.599mil|Location1.Y=1342.457mil|Location2.Y=1767.717mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1389.701mil|Location2.X=1712.599mil|Location1.Y=1342.457mil|Location2.Y=1767.717mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_STAT Between Pad TP6-1(6.4mm,10.2mm) on Top Layer And Pad U1-4(13.05mm,19.75mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1830.709mil|Location2.X=1866.142mil|Location1.Y=1716.535mil|Location2.Y=1748.032mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1830.709mil|Location2.X=1866.142mil|Location1.Y=1716.535mil|Location2.Y=1748.032mil|Absolute=True">Un-Routed Net Constraint: Net BQ25895_BAT Between Pad U1-13(16.95mm,18.75mm) on Top Layer And Pad U1-14(16.95mm,19.25mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1830.709mil|Location2.X=1866.142mil|Location1.Y=1795.276mil|Location2.Y=1826.772mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1830.709mil|Location2.X=1866.142mil|Location1.Y=1795.276mil|Location2.Y=1826.772mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U1-17(16.95mm,20.75mm) on Top Layer And Pad U1-18(16.95mm,21.25mm) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1779.465mil|Location2.X=1866.142mil|Location1.Y=1779.465mil|Location2.Y=1807.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1779.465mil|Location2.X=1866.142mil|Location1.Y=1779.465mil|Location2.Y=1807.15mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (15.55mm,20.55mm) from Top Layer to Bottom Layer And Pad U1-17(16.95mm,20.75mm) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDL3BTROYOYL5FFK5B5OSNHKOUID4V4QTKPDZZBFEIMGPXNR5MMW0E"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1632.327mil|Location2.X=1666.457mil|Location1.Y=1876.421mil|Location2.Y=1928.006mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1632.327mil|Location2.X=1666.457mil|Location1.Y=1876.421mil|Location2.Y=1928.006mil|Absolute=True">Net Antennae: Via (11.8mm,23mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1732.658mil|Location2.X=1775.496mil|Location1.Y=1732.658mil|Location2.Y=1798.88mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1732.658mil|Location2.X=1775.496mil|Location1.Y=1732.658mil|Location2.Y=1798.88mil|Absolute=True">Net Antennae: Via (14.45mm,19.45mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1732.658mil|Location2.X=1775.496mil|Location1.Y=1775.965mil|Location2.Y=1842.187mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1732.658mil|Location2.X=1775.496mil|Location1.Y=1775.965mil|Location2.Y=1842.187mil|Absolute=True">Net Antennae: Via (14.45mm,20.55mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1775.965mil|Location2.X=1818.803mil|Location1.Y=1732.658mil|Location2.Y=1798.88mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1775.965mil|Location2.X=1818.803mil|Location1.Y=1732.658mil|Location2.Y=1798.88mil|Absolute=True">Net Antennae: Via (15.55mm,19.45mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1775.965mil|Location2.X=1818.803mil|Location1.Y=1775.965mil|Location2.Y=1842.187mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=D:\Work_Files\BQ25895_BMS\BQ25895_BMS\Hardware\BQ25895_BMS_Module.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1775.965mil|Location2.X=1818.803mil|Location1.Y=1775.965mil|Location2.Y=1842.187mil|Absolute=True">Net Antennae: Via (15.55mm,20.55mm) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

@@ -1,0 +1,10 @@
+Change component parameters: Designator = "MH1" ("MH1"); Footprint = "Mounting_Hole_3.3mm"; UniqueID = "\NYEHOBFX" ("\NYEHOBFX")
+Change component parameters (AddParameter): Name = "ClassName"; Value = "Mounting Hole"; VariantName = "[No Variations]"
+Change component parameters: Designator = "MH2" ("MH2"); Footprint = "Mounting_Hole_3.3mm"; UniqueID = "\QIATPTZK" ("\QIATPTZK")
+Change component parameters (AddParameter): Name = "Class Name"; Value = "Mounting Hole"; VariantName = "[No Variations]"
+Change component parameters: Designator = "MH3" ("MH3"); Footprint = "Mounting_Hole_3.3mm"; UniqueID = "\KBUVUEFD" ("\KBUVUEFD")
+Change component parameters (AddParameter): Name = "Class Name"; Value = "Mounting Hole"; VariantName = "[No Variations]"
+Change component parameters: Designator = "MH4" ("MH4"); Footprint = "Mounting_Hole_3.3mm"; UniqueID = "\LDVQGKIE" ("\LDVQGKIE")
+Change component parameters (AddParameter): Name = "ClassName"; Value = "Mounting Hole"; VariantName = "[No Variations]"
+Added Class: Name=Mounting Hole
+Added Room: Name=BQ25895_BMS_Module
