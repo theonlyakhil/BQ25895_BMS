@@ -1,0 +1,148 @@
+Added Component: Designator=C14(Capacitor_0603)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "SupplierURL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.digikey.com/en/products/detail/murata-electronics/GRM188R61E106KA73D/9867922"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Murata Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ManufacturerPartNumber"; Value = "GRM188R61E106KA73D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MaxTemp"; Value = "85°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MinTemp"; Value = "-55°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartStatus"; Value = "Active"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.32"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digikey"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SupplierPartNumber"; Value = "490-18214-1-ND"; VariantName = "[No Variations]"
+Added Component: Designator=C15(Capacitor_0603)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "SupplierURL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.digikey.com/en/products/detail/kemet/C0603C104J3RAC7411/12701256"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "KEMET"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ManufacturerPartNumber"; Value = "C0603C104J3RAC7411"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MaxTemp"; Value = "125°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MinTemp"; Value = "-55°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartStatus"; Value = "Active"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.43"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digikey"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SupplierPartNumber"; Value = "399-C0603C104J3RAC7411CT-ND"; VariantName = "[No Variations]"
+Added Component: Designator=C16(Capacitor_0603)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "SupplierURL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.digikey.com/en/products/detail/murata-electronics/GRM188R61E106KA73D/9867922"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Murata Electronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ManufacturerPartNumber"; Value = "GRM188R61E106KA73D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MaxTemp"; Value = "85°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MinTemp"; Value = "-55°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartStatus"; Value = "Active"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.32"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digikey"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SupplierPartNumber"; Value = "490-18214-1-ND"; VariantName = "[No Variations]"
+Added Component: Designator=C17(Capacitor_0603)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "SupplierURL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.digikey.com/en/products/detail/kemet/C0603C104J3RAC7411/12701256"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "KEMET"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ManufacturerPartNumber"; Value = "C0603C104J3RAC7411"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MaxTemp"; Value = "125°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MinTemp"; Value = "-55°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartStatus"; Value = "Active"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.43"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digikey"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SupplierPartNumber"; Value = "399-C0603C104J3RAC7411CT-ND"; VariantName = "[No Variations]"
+Added Component: Designator=D2(NSR10F20NXT5G)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "SupplierURL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.digikey.com/en/products/detail/on-semiconductor/NSR10F20NXT5G/2401415"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "ON Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ManufacturerPartNumber"; Value = "NSR10F20NXT5G"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MaxTemp"; Value = "+150°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MinTemp"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartStatus"; Value = "Active"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.51"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digikey"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SupplierPartNumber"; Value = "NSR10F20NXT5GOSCT-ND"; VariantName = "[No Variations]"
+Added Component: Designator=J7(P2.541X2HDR)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Supplier Link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.digikey.com/en/products/detail/sullins-connector-solutions/PEC02SAAN/859155"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manyfacturer Part Number"; Value = "PEC02SAAN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Temp"; Value = "125°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Temp"; Value = "-65°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Status"; Value = "Active"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.18"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "S1012E-02-ND"; VariantName = "[No Variations]"
+Added Component: Designator=J8(P2.541X2HDR)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "Supplier Link"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.digikey.com/en/products/detail/sullins-connector-solutions/PEC02SAAN/859155"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manyfacturer Part Number"; Value = "PEC02SAAN"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Max Temp"; Value = "125°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Min Temp"; Value = "-65°C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Status"; Value = "Active"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.18"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "S1012E-02-ND"; VariantName = "[No Variations]"
+Added Component: Designator=J9(CUI_UJ2-AH-4-TH)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "SupplierURL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.digikey.in/en/products/detail/cui-devices/UJ2-AH-4-TH/6187909"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "CUI Devices"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ManufacturerPartNumber"; Value = "UJ2-AH-4-TH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MaxTemp"; Value = "85C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MinTemp"; Value = "-20C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartStatus"; Value = "Active"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.97"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digikey"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SupplierPartNumber"; Value = "102-3994-ND"; VariantName = "[No Variations]"
+Added Component: Designator=J10(CUI_UJ2-AH-4-TH)
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "SupplierURL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "https://www.digikey.in/en/products/detail/cui-devices/UJ2-AH-4-TH/6187909"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "CUI Devices"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ManufacturerPartNumber"; Value = "UJ2-AH-4-TH"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MaxTemp"; Value = "85C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MinTemp"; Value = "-20C"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "PartStatus"; Value = "Active"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "0.97"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Digikey"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SupplierPartNumber"; Value = "102-3994-ND"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C14-1
+Added Pin To Net: NetName=BQ25895_PMID Pin=C14-2
+Added Pin To Net: NetName=GND Pin=C15-1
+Added Pin To Net: NetName=BQ25895_PMID Pin=C15-2
+Added Pin To Net: NetName=GND Pin=C16-1
+Added Pin To Net: NetName=BQ25895_PMID Pin=C16-2
+Added Pin To Net: NetName=GND Pin=C17-1
+Added Pin To Net: NetName=BQ25895_PMID Pin=C17-2
+Added Pin To Net: NetName=BQ25895_PMID Pin=D2-1
+Added Pin To Net: NetName=NetC8_2 Pin=D2-2
+Added Pin To Net: NetName=BQ25895_PMID Pin=J7-1
+Added Pin To Net: NetName=BQ25895_PMID Pin=J8-1
+Added Pin To Net: NetName=GND Pin=J9-4
+Added Pin To Net: NetName=GND Pin=J9-SH1
+Added Pin To Net: NetName=GND Pin=J9-SH2
+Added Pin To Net: NetName=GND Pin=J10-4
+Added Pin To Net: NetName=GND Pin=J10-SH1
+Added Pin To Net: NetName=GND Pin=J10-SH2
+Change Net Name : Old Net Name=BQ25895_PMID New Net Name=BQ_PMID
+Change Net Color : Old Net Color=RGB(253, 131, 0) New Net Color=Default
+Change Net Color : Old Net Color=RGB(110, 255, 255) New Net Color=Default
+Change Net Color : Old Net Color=RGB(253, 131, 0) New Net Color=Default
+Change Net Color : Old Net Color=RGB(110, 255, 255) New Net Color=Default
+Change Net Color : Old Net Color=RGB(253, 131, 0) New Net Color=Default
+Change Net Color : Old Net Color=RGB(110, 255, 110) New Net Color=Default
+Change Net Color : Old Net Color=RGB(110, 255, 255) New Net Color=Default
+Change Net Color : Old Net Color=RGB(110, 255, 255) New Net Color=Default
+Change Net Color : Old Net Color=RGB(110, 255, 255) New Net Color=Default
+Change Net Color : Old Net Color=RGB(253, 131, 0) New Net Color=Default
+Change Net Color : Old Net Color=RGB(110, 110, 255) New Net Color=Default
+Added Pin To Net: NetName=NetJ7_2 Pin=J7-2
+Added Pin To Net: NetName=NetJ7_2 Pin=J9-1
+Added Net: Name=NetJ7_2
+Added Pin To Net: NetName=NetJ8_2 Pin=J8-2
+Added Pin To Net: NetName=NetJ8_2 Pin=J10-1
+Added Net: Name=NetJ8_2
+Added Pin To Net: NetName=USB2_N Pin=J9-2
+Added Pin To Net: NetName=USB2_N Pin=J10-2
+Added Net: Name=USB2_N
+Added Pin To Net: NetName=USB2_P Pin=J9-3
+Added Pin To Net: NetName=USB2_P Pin=J10-3
+Added Net: Name=USB2_P
+Added Differential Pair: Name=USB2
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component C14 10uF(0603 in )
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component C15 0.1uF(25V)
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component C16 10uF(0603 in )
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component C17 0.1uF(25V)
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component D2 NSR10F20NXT5G
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component J7 PEC02SAAN
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component J8 PEC02SAAN
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component J9 UJ2-AH-4-TH
+Added Member To Class: ClassName=BQ25895_BMS_Module Member=Component J10 UJ2-AH-4-TH
+Added Room: Name=BQ25895_BMS_Module
